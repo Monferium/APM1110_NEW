@@ -65,23 +65,23 @@ cat("The overall percentage of relevant images:",prob_s_and_r, "or", round(prob_
 Consider the given sensors labeled as S₁ S₂ S₃ and S₄ each has own
 percentage of supplied images such that:
 
-$$ P(S_1) = 15\% = 0.15 $$
+$$ P(S_1) = 0.15 $$
 
-$$ P(S_2) = 20\% = 0.20 $$
+$$ P(S_2) = 0.20 $$
 
-$$ P(S_3) = 25\% = 0.25 $$
+$$ P(S_3) = 0.25 $$
 
-$$ P(S_4) = 40\% = 0.40 $$
+$$ P(S_4) = 0.40 $$
 
 In each sensors, each holds the percentages of which images is relevant
 
-$$ p(R_1|S_1) = 50\% = 0.50 $$
+$$ p(R_1|S_1) = 0.50 $$
 
-$$ p(R_2|S_2) = 60\% = 0.60 $$
+$$ p(R_2|S_2) = 0.60 $$
 
-$$ p(R_3|S_3) = 80\% = 0.80 $$
+$$ p(R_3|S_3) = 0.80 $$
 
-$$ p(R_4|S_4) = 85\% = 0.85 $$
+$$ p(R_4|S_4) = 0.85 $$
 
 Through the Conditional Probability Theorem, we can determine the
 intersection of events between the individual sensors and to its
@@ -91,16 +91,22 @@ $$ \text{If } P(B | A) = \frac{P(A \cap B)}{P(A)}$$
 
 $$ \text{Then } P(A \cap B) = P(B | A) * P(A) $$
 
-$$ \text{To determine the total probability of relevant images, denoted as } P(R) $$
+To determine the total probability of relevant images
+
+$$ \text{Denoting as } P(R) $$
 
 $$ P(R) = P(S_1 \cap R_1) + P(S_2 \cap R_2) + P(S_3 \cap R_3) + P(S_4 \cap R_4)$$
 
-Substitute the probability of each intersection of events according to
+Derive each of the probability of the intersection of events according to
 the law of conditional probability:
 
-$$ P(R) = \sum (P(R | S)* P(S))$$
+$$ P(R) = (P(R_1 | S_1)* P(S_1)) + (P(R_2 | S_2)* P(S_2)) + (P(R_3 | S_3)* P(S_3)) + (P(R_4 | S_4)* P(S_4)) $$
+
+Subsitute every values known
 
 $$ P(R) = (0.50 × 0.15) + (0.60 × 0.20) +(0.80 × 0.25) + (0.85 × 0.40) = 0.735 $$
+
+### A geospatial analysis systems has four sensors supplying images. Nevertheless, the relevant images in the overall system would be about 73.5%
 
 ## Item B:
 
