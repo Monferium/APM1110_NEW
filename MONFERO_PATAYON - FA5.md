@@ -6,6 +6,7 @@
 #### Answer Exercises 7.1 items 6, 9, and 13.
 
 <img src="Item6.png" width="100%" />
+
 **Assign the following given into three distinct vectors labeled as:**
 
 ``` r
@@ -83,5 +84,11 @@ cat("c. Probability that a message was sent through server 1 given that it arriv
 ```output
 ## c. Probability that a message was sent through server 1 given that it arrived without error: 0.401725 or  40.1725%
 ```
+<img src="Drawing6.png" width="100%" />
 
-<img src="Item9.png" width="100%" />
+#### Answer Exercises 7.1 items 6, 9, and 13.
+
+<img src="Drawing9.png" width="100%" />
+
+
+
