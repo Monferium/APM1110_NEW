@@ -88,7 +88,7 @@ cat("c. Probability that a message was sent through server 1 given that it arriv
 
 #### Answer Exercises 7.1 items 6, 9, and 13.
 
-<img src="Drawing9.png" width="100%" />
+<img src="Item9.png" width="100%" />
 
 **Assign the neccesary values** 
 starting from the given `P(A), P(B), P(C)` and their intersections with event G in order to achieve `P(G)`
@@ -174,4 +174,78 @@ cat("b. the posterior probability of B given G:", prob_B_given_G,"\n")
 ## b. the posterior probability of B given G: 0.875
 ```
 
+### (c) Construct a tree diagram and use it to calculate the following probabilities: 
+### P(G), P(B|G), P(B|¬G), P(C|G), P(¬C|¬G).
 
+<img src="Drawing9.png" width="100%" />
+
+1. To determine `P(G)`:
+
+$$ P(G) = P(A \cap G) + P(B \cap G) + P(C \cap G) = 0.02 + 0.28 + 0.2 = 0.32 $$
+
+2. Through Bayes Theorem, we determine the posterior probability `P(B|G)`:
+
+$$ P(B|G) = \frac{P(G|B) * P(B)}{P(G)} = \frac{(0.40) * (0.70)}{0.32} = 0.875 $$
+
+3. Through Bayes Theorem and Law of Complementary Probability, we determine the posterior probability `P(B|¬G)`
+
+$$ P(B|\bar{G}) = \frac{P(\bar{G}|B) * P(B)}{P(\bar{G})} = \frac{(1 - P(G|B)) * (0.70)}{1 - P(G)} = \frac{(1 - 0.40) * (0.70)}{1 - 0.32} \approx 0.61765 $$
+
+4. Through Bayes Theorem, the posterior probability for P(C|G):
+
+$$ P(C|G) = \frac{P(G|C) * P(C)}{P(G)} = \frac{(0.20) * (0.10)}{0.32} = 0.0625 $$
+
+5. Finally, through law of total probability, bayes theorem and complimentary probability, the derivation for the expression `P(¬C|¬G)` are as follows:
+
+$$ P(\bar{C}|\bar{G}) = \frac{P(\bar{G}|\bar{C}) * \bar{P(C)}}{P(\bar{G})} = \frac{\frac{(P(\bar{C} \cap \bar{G})}{P(\bar{C})} * \bar{P(C)}}{1 - P(G)} $$
+
+$$ = \frac{\frac{P(\bar{C} \cap \bar{G})}{P(\bar{C})} * \bar{P(C)}}{1 - P(G)} = \frac{P(\bar{C} \cap \bar{G})}{1 - 0.32} = \frac{P(A \cap \bar{G}) + P(B \cap \bar{G})}{1 - 0.32} = \frac{0.60}{0.68} \approx 0.88235 $$
+
+#### Answer Exercises 7.1 items 6, 9, and 13.
+<img src="Item13.png" width="100%" />
+
+**Store every given values in each respected variables**
+```r
+P_I <- 0.7 # spyware comes attack through the internet
+P_E <- 0.3 # spyware attack comes through the email
+P_D_given_I <- 0.6 # antivirus can dectect via internet
+P_D_given_E <- 0.8 # antivirus can dectect via email
+```
+
+### (a) what is the probability that this spyware infects the system?
+```r
+# Using the Law of Total Probability
+P_infection <- P_I * P_D_given_I + P_E * P_D_given_E
+
+cat("a. Probability that the spyware infects the system:", P_infection, "\n")
+```
+```output
+## a. Probability that the spyware infects the system: 0.66
+```
+
+Consider the following:
+> `I` be the events that spyware attacks in internet
+> 
+> `E` be the events that spyware attacks in email
+> 
+> `D_given_I` be the events that anti-virus detected the spyware attacks in internet
+> 
+> `D_given_E` be the events that anti-virus detected the spyware attacks in email
+Thus;
+
+$$ P(\text{the system has been infected}) = P(D|I) P(I) + P(D|E) P(E) $$
+
+$$ P(\text{the system has been infected}) = 0.60 * 0.70 + 0.80 * 0.30 $$
+
+$$ P(\text{the system has been infected}) \approx 0.66 $$
+
+### (b) If the spyware is detected, what is the probability that it came through the Internet?
+```r
+# Using the Bayes Theorem to determine the posterior probability P(I|D)
+P_I_given_D <- P_D_given_I * P_I / P_infection
+
+cat("b. If the spyware is detected, the probability that it came through the Internet:", P_I_given_D, "\n")
+```
+```output
+## b. If the spyware is detected, the probability that it came through the Internet: 0.63
+```
