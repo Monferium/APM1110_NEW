@@ -75,13 +75,13 @@ $$ P(S_4) = 0.40 $$
 
 In each sensors, each holds the percentages of which images is relevant
 
-$$ p(R_1|S_1) = 0.50 $$
+$$ P(R_1|S_1) = 0.50 $$
 
-$$ p(R_2|S_2) = 0.60 $$
+$$ P(R_2|S_2) = 0.60 $$
 
-$$ p(R_3|S_3) = 0.80 $$
+$$ P(R_3|S_3) = 0.80 $$
 
-$$ p(R_4|S_4) = 0.85 $$
+$$ P(R_4|S_4) = 0.85 $$
 
 Through the Conditional Probability Theorem, we can determine the
 intersection of events between the individual sensors and to its
